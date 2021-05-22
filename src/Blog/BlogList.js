@@ -6,30 +6,37 @@ import "./blog.css";
 const BlogList = () => {
 
   const [blogList, setBlogList] = useState([]);
+  const [blogLoding, setBlogLoding] = useState(true);
 
   useEffect(() => {
+    setBlogLoding(true);
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
         setBlogList(response.data);
+        setBlogLoding(false);
       })
       .catch((error) => {
         console.log(error.message);
+        setBlogLoding(false);
       });
-  }, []); // [] update once like componentDidMount
+  }, []);
 
   return (
     <div>
       <h2 className="blog-list-title">Blog List</h2>
-      <ul className="blog-list">
-        {blogList.map((blogListItem) => {
-          return (
-            <li className="blog-list-item" key={blogListItem.id}>
-              <Link to={`/blogs/${blogListItem.id}`}>{blogListItem.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      {(blogLoding) ?
+        <div> Loading.... </div>
+        :
+        <ul className="blog-list">
+          {blogList.map((blogListItem) => {
+            return (
+              <li className="blog-list-item blog-list-item-color" key={blogListItem.id}>
+                <Link to={`/blogs/${blogListItem.id}`}> {blogListItem.id}.  {blogListItem.title}</Link>
+              </li>
+            );
+          })}
+        </ul>}
     </div>
   );
 };

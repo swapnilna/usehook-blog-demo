@@ -38,13 +38,14 @@ const BlogDetails = (props) => {
       ) : (
         <>
           <div>
-            <Link to="/">Back</Link>
+            <Link to="/"> <button className="pagination-btn next"> Home </button> </Link>
           </div>
           <div>
             <div className="blog-title">{blogDetails.title}</div>
             <div className="blog-content"> {blogDetails.body}</div>
           </div>
 
+          <div> User Comments :   </div>
           <ul className="comment-list">
             {blogComments.map((blogComment) => {
               return (
@@ -58,7 +59,7 @@ const BlogDetails = (props) => {
 
           <div className="btn-container">
             <button
-              className={blogId === 1 ? "disabled" : ""}
+              className={`pagination-btn previous ${blogId === 1 ? "disabled" : ""}`}
               onClick={() => {
                 let blogId = parseInt(match.params.blogId, 10);
                 history.push(`/blogs/${--blogId}`);
@@ -66,8 +67,9 @@ const BlogDetails = (props) => {
             >
               Previous
             </button>
+            {"  "}
             <button
-              className={blogId === 100 ? "disabled" : ""}
+              className={`pagination-btn next ${blogId === 100 ? "disabled" : ""}`}
               onClick={() => {
                 let blogId = parseInt(match.params.blogId, 10);
                 history.push(`/blogs/${++blogId}`);

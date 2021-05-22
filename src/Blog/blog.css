@@ -5,6 +5,8 @@
   border-bottom: 1px solid #e4e4e4;
   margin: 0;
   height: 50px;
+  background-color: #282A35;
+  color: #e4e4e4;
 
   display: flex;
   justify-content: center;
@@ -19,6 +21,7 @@
 }
 
 .blog-list-item {
+  text-align: left;
   border: 1px solid #f1f1f1;
   padding: 18px 10px;
   margin-top: 20px;
@@ -26,16 +29,29 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.blog-list-item-color {
+  background-color: #E7E9EB;  
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.blog-list-item-color:hover {
+  background-color: #3e8e41;
+  color: #010108;
+}
+
 .blog-list-item a {
   text-decoration: none;
-  color: #656565;
+  color: #010108;
 }
 
 /* blog details  */
 
 .container {
-  width: 70%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 20px auto;
+  background-color: #E7E9EB; 
+  padding: 8px 16px;
 }
 
 .blog-title {
@@ -59,7 +75,7 @@
 .comment-list-item {
   margin-top: 10px;
   text-align: left;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #010108;
   padding: 9px;
 }
 
@@ -68,4 +84,23 @@
   background: #ccc;
 }
 
+.pagination-btn {  
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.pagination-btn:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
 
